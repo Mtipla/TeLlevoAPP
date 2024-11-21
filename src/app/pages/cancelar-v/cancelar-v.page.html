@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cancelar viajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title >Cancelar Viajes</ion-card-title>
+    </ion-card-header>
+    <ion-card-content >
+      <ion-list >
+        <ion-item  *ngFor="let conta of arreglo;  index as i;">
+          <ion-icon name="car" slot="start"></ion-icon>
+          {{i}}- {{ conta.destino }} {{ conta.fecha }}
+          <ion-button fill="clear"  slot="end" (click)="setOpen(true)">Cancelar</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-action-sheet [isOpen]="isActionSheetOpen" header="¿Seguro de que quiere cancelar el viaje?" [buttons]="actionSheetButtons"
+  (didDismiss)="setOpen(false)"></ion-action-sheet>

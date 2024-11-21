@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+      <ion-button fill="outline" size="small" (click)="unirse()">Unirse</ion-button>
+    </ion-buttons>
+    <ion-title>Mapa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-content>
+    <div id='mapa' style="width: 100%; height: 100%;"></div>
+  </ion-content>
+</ion-content>
