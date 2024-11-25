@@ -7,12 +7,11 @@
   </ion-toolbar>
 
   <ion-toolbar>
-    <ion-searchbar *ngIf="sw" placeholder="Destino" [(ngModel)]="mi_direccion"
+    <ion-searchbar name="Destino" *ngIf="sw" placeholder="Destino" [(ngModel)]="mi_direccion"
       show-clear-button="focus"></ion-searchbar>
     <ion-item *ngIf="sw2">
-      <ion-select (ionChange)="direccionSeleccionada($event)" label="Partida" label-placement="floating">
-        <ion-select-option [value]="dire" *ngFor="let dire of arreglo_direcciones">{{ dire.place_name
-          }}</ion-select-option>
+      <ion-select name="Partida" (ionChange)="direccionSeleccionada($event)" label="Partida" label-placement="floating">
+        <ion-select-option [value]="dire" *ngFor="let dire of arreglo_direcciones">{{ dire.place_name }}</ion-select-option>
       </ion-select>
     </ion-item>
 
