@@ -8,6 +8,7 @@ class Viaje(models.Model):
     destino= models.CharField(max_length=50,default='S/D')
     precio= models.IntegerField()
     capacidad= models.IntegerField()
+    fecha=models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.partida
