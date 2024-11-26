@@ -6,6 +6,7 @@ class Viaje(models.Model):
     idviaje= models.AutoField(primary_key=True)
     partida= models.CharField(max_length=50,null=True)
     destino= models.CharField(max_length=50,default='S/D')
+    lugar_encuentro= models.CharField(max_length=50,null=True)
     precio= models.IntegerField()
     capacidad= models.IntegerField()
     fecha=models.DateTimeField(null=True, blank=True)
