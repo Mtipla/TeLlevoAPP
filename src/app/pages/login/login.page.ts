@@ -22,6 +22,7 @@ export class LoginPage implements OnInit {
   password: string = '';
 
   ngOnInit() {
+  
   }
 
   // Función para iniciar sesión
@@ -32,6 +33,7 @@ export class LoginPage implements OnInit {
         setTimeout(() => {
           console.log('Redirigiendo a /home');
           this.navCtrl.navigateRoot('/home');
+          localStorage.setItem('correo',this.correo)
         }, 500);
       },
       (err) => {
@@ -40,7 +42,23 @@ export class LoginPage implements OnInit {
       }
     );
   }
-  
+  loginPasajero() {
+    this.authcorreo.loginUser(this.correo, this.password).subscribe(
+      (res) => {
+        console.log('Login exitoso:', res);
+        setTimeout(() => {
+          console.log('Redirigiendo a /home');
+          this.navCtrl.navigateRoot('/home-pasajero');
+          localStorage.setItem('correo',this.correo)
+        }, 500);
+      },
+      (err) => {
+        console.error('Error en inicio de sesión:', err);
+        this.showAlert('Usuario/contraseña incorrectos.');
+      }
+    );
+  }
+
   // Función para registrarse
   register() {
     this.authcorreo.registerUser(this.correo, this.password).subscribe(
@@ -55,24 +73,7 @@ export class LoginPage implements OnInit {
     );
   }
 
-  loginWithGoogle() {
-    GoogleAuth.signIn()
-      .then(response => {
-        const idToken = response.authentication.idToken;
-        if (idToken) {
-          this.authcorreo.loginWithGoogle(idToken).subscribe(user => {
-            console.log('Usuario logueado con Google:', user);
-            this.navCtrl.navigateRoot('/home'); // Navegar desde el componente
-          });
-        } else {
-          console.error('No se obtuvo el idToken de Google');
-        }
-      })
-      .catch(error => {
-        console.error('Error al iniciar sesión con Google:', error);
-        this.showAlert('Error al iniciar sesión con Google.');
-      });
-  }
+ 
 
   // Función para mostrar alertas
   async showAlert(message: string) {

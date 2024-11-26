@@ -2,13 +2,13 @@
   <ion-header>
 
     <ion-toolbar>
-      <ion-title> Pasajero {{ usuario }} </ion-title>
+      <ion-title> Pasajero </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
     <ion-list lines="full">
       <ion-item>
-        <ion-button fill="clear"  color="dark">Perfil</ion-button>
+        <ion-button fill="clear"  color="dark">{{ correo }} </ion-button>
       </ion-item>
       <ion-item>
         <ion-button fill="clear" routerLink="/home" color="dark">Modo de viaje</ion-button>
@@ -26,7 +26,7 @@
     <ion-toolbar>
       <ion-buttons slot="start" (click)="openSecondMenu()"> <ion-icon name="menu-outline" size="large"></ion-icon> 
       </ion-buttons>
-      <ion-title>Bienvenido {{ usuario }} </ion-title>
+      <ion-title>Bienvenido Pasajero </ion-title>
     </ion-toolbar>
   </ion-header>
 

@@ -28,6 +28,7 @@ export class ViajarPasajeroPage implements OnInit {
       this.m_viaje = via
       localStorage.setItem("lat_direccion",`${via.lat_destino}` );
       localStorage.setItem("lng_direccion",`${via.lng_destino}` );
+      localStorage.setItem("viaje_mod",JSON.stringify(this.m_viaje));
       this.navCtrl.navigateForward(['/mapa-pasajero'])
   }
 }

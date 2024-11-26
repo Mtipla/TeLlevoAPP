@@ -45,10 +45,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/buscar-v/buscar-v.module').then( m => m.BuscarVPageModule)
   },
   {
-    path: 'crud',
-    loadChildren: () => import('./pages/crud/crud.module').then( m => m.CrudPageModule)
-  },
-  {
     path: 'crud-api',
     loadChildren: () => import('./pages/crud-api/crud-api.module').then( m => m.CrudApiPageModule)
   },

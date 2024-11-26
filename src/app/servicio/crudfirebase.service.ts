@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Timestamp } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { when } from 'cypress/types/jquery';
 
 
 
@@ -39,8 +40,6 @@ export class CrudfirebaseService {
   modificarViaje(id:any,viaje:Viajes){
     return this.firestore.collection('viaje').doc(id).update(viaje)
   }
-  
-  
   
 }
 

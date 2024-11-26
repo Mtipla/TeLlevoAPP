@@ -1,13 +1,13 @@
 <ion-menu menuId="first-menu" contentId="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title> Conductor {{ usuario }} </ion-title>
+      <ion-title> Conductor  </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
     <ion-list lines="full">
       <ion-item>
-        <ion-button fill="clear" color="dark">Perfil</ion-button>
+        <ion-button fill="clear" color="dark"> {{ correo }}</ion-button>
       </ion-item>
       <ion-item>
         <ion-button fill="clear" routerLink="/home-pasajero" color="dark">Modo de viaje</ion-button>
@@ -28,7 +28,7 @@
     <ion-toolbar>
       <ion-buttons slot="start" (click)="openFirstMenu()"> <ion-icon name="menu-outline" size="large"></ion-icon>
       </ion-buttons>
-      <ion-title>Bienvenido {{ usuario }} </ion-title>
+      <ion-title>Bienvenido Conductor </ion-title>
     </ion-toolbar>
   </ion-header>
 

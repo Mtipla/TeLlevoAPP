@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import * as mapbox from 'mapbox-gl';
 import { HttpClient } from '@angular/common/http';
+import { CrudfirebaseService, Viajes } from 'src/app/servicio/crudfirebase.service';
 
 import { NavController } from '@ionic/angular';
 
@@ -12,24 +13,21 @@ import { NavController } from '@ionic/angular';
 })
 export class MapaPasajeroPage implements OnInit {
 
-  constructor(private http: HttpClient,private navCtrl:NavController) { }
+  constructor(private http: HttpClient,private navCtrl:NavController, private CrudServ: CrudfirebaseService) { }
 
-  ngOnInit() {
-    
+  ngOnInit() { this.viaje_mod=JSON.parse(localStorage.getItem("viaje_mod")?? '')
   }
 
-
+  viaje_mod: Viajes = { id: '', partida: '', destino: '', capacidad_vehiculo: 0, precio: 0, lat_destino: 0, lng_destino: 0, lugar_encuentro: '' }
   map: mapbox.Map;
   lat_final = -33.59844271829733
   lng_final = -70.57882462583581
   lat_dest = parseFloat(localStorage.getItem("lat_direccion") ?? '0')
   lng_dest = parseFloat(localStorage.getItem("lng_direccion") ?? '0')
-  
 
   ionViewWillEnter() {
     this.mapa();
   }
-
 
   mapa() {
     this.map = new mapbox.Map({
@@ -43,7 +41,6 @@ export class MapaPasajeroPage implements OnInit {
     
     this.direccionSeleccionada();
   }
-
 
   direccionSeleccionada(){
     let longitud=this.lng_dest
@@ -82,10 +79,19 @@ export class MapaPasajeroPage implements OnInit {
     })
   }
 
-
-
   unirse(){
+    this.viaje_mod.capacidad_vehiculo=this.viaje_mod.capacidad_vehiculo-1
+    this.modificar()
     this.map.remove()
     this.navCtrl.navigateForward(['/home-pasajero'])
+  }
+
+  modificar(){
+    this.CrudServ.modificarViaje(this.viaje_mod.id,this.viaje_mod).then(()=>{
+
+    }).catch((err)=>{
+
+    })
+
   }
 }

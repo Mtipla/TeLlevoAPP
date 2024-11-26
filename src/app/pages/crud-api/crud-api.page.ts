@@ -20,7 +20,8 @@ export class CrudApiPage implements OnInit {
   recuperar() {
     this.api.getInfo().subscribe(
         (resp) => {
-        console.log(resp)
+        JSON.parse(resp)
+        this.lista=resp
       },
         (error) => {
         console.log(error)

@@ -9,11 +9,11 @@ import { AuthenticationService } from 'src/app/servicio/authentication.service';
 })
 export class HomePage implements OnInit {
 
-  usuario:string=""
+  correo:string=""
   
   constructor(private authService:AuthenticationService, private menuCtrl: MenuController) { }
 
-  ngOnInit() {
+  ngOnInit() { this.correo=localStorage.getItem("correo")?? ''
   }
 
   cerrar(){

@@ -22,17 +22,21 @@
   <div class="btn">
     <ion-grid [fixed]="true">
       <ion-row>
-        <ion-col> 
-          <ion-button type="submit" (click)="login()" name="ok" color="warning">Iniciar sesión con correo</ion-button>
-
+        <ion-col>
+          <ion-button expand="full" type="submit" (click)="login()" name="ok" color="warning">Iniciar sesión Conductor</ion-button>
+          <ion-button expand="full" type="submit" (click)="loginPasajero()" name="ok" color="warning">Iniciar sesión Pasajero</ion-button>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-button routerLink="/recp-c" fill="clear" size="small">Recuperar Contraseña</ion-button>
       </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="full" (click)="register()">Registrarse con correo</ion-button>
+        </ion-col>
+      </ion-row>
     </ion-grid>
   </div>
 
   <!-- Botón para registrarse con correo -->
-  <ion-button expand="full" (click)="register()">Registrarse con correo</ion-button>
 </ion-content>
