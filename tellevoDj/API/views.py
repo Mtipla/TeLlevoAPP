@@ -5,12 +5,6 @@ from rest_framework import generics
 from .serializers import *
 from .models import *
 
-class UsuarioViewSet(generics.ListCreateAPIView):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializers
-
-
-
-class ViajeViewSet(generics.ListCreateAPIView):
-    queryset = Viaje.objects.all()
-    serializer_class = ViajeSerializer
+class SedesViewSet(generics.ListCreateAPIView):
+    queryset = SedesDuoc.objects.all()
+    serializer_class = SedeDuocSerializer
