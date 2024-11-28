@@ -8,6 +8,7 @@ describe('My First Test', () => {
     cy.get('input[name="correo"]').type('plazadiego591@gmail.com');
     cy.get('input[name="password"]').type('Dinop841');
     cy.contains('Iniciar sesión Conductor').click();
+    cy.url().should('include', '/splash');
     cy.url().should('include', '/home');
     cy.contains('Programar viaje').click();
     cy.get('input[name="Destino"').type('las vizcachas');
@@ -29,7 +30,7 @@ describe('My First Test', () => {
     cy.get('input[name="correo"]').type('plazadiego591@gmail.com');
     cy.get('input[name="password"]').type('Dinop841');
     cy.contains('Iniciar sesión Conductor').click();
-    cy.url().should('include', '/home');
+    cy.url().should('include', '/splash');
     cy.url().should('include', '/home');
     cy.contains('Ver viajes').click();
     cy.get('ion-grid').should('be.visible');

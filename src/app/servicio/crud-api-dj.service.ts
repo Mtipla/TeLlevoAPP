@@ -10,7 +10,7 @@ export class CrudApiDjService {
 
   constructor(private http:HttpClient) { }
 
-  rutaApi='http://127.0.0.1:8000/api/viaje/'
+  rutaApi='http://127.0.0.1:8000/api/sedes/'
   rutaApi2='https://mindicador.cl/api/dolar/'
   
 

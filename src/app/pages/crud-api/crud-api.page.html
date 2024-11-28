@@ -9,4 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-button (click)="recuperar()">Recuperar</ion-button>
+  <ion-grid *ngFor="let api of lista">
+    {{ api.nombre }}
+  </ion-grid>
 </ion-content>
