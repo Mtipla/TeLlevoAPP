@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthcorreoService } from 'src/app/servicio/authcorreo.service';
+import { LoadingController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-recp-c',
@@ -7,20 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecpCPage implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthcorreoService, private ldnCtrl: LoadingController) { }
 
-  sw2: boolean = false 
-  sw: boolean = true 
+
+  correo:string = ''
 
   ngOnInit() {
   }
 
-  codigo() {
-    setTimeout(()=>{
-      this.sw = false
-      this.sw2 = true 
-    },2900)
+  rec_contrasena() {
+    if (this.correo) {
+      this.Ldng('Correo de recuperación enviado');
+      this.authService.resetPassword(this.correo);
+    } else {
+      this.Ldng('Por favor ingresa tu correo electrónico');
+    }
+  }
 
+  async Ldng(msg:string) {
+    const loading = await this.ldnCtrl.create({
+      message: msg,
+      duration: 3000,
+    });
+
+    loading.present();
   }
 
 }

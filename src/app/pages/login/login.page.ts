@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/servicio/authentication.service';
 import { AuthcorreoService } from 'src/app/servicio/authcorreo.service';
-import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +31,7 @@ export class LoginPage implements OnInit {
         console.log('Login exitoso:', res);
         setTimeout(() => {
           console.log('Redirigiendo a /home');
-          this.navCtrl.navigateRoot('/home');
+          this.navCtrl.navigateRoot('/splash');
           localStorage.setItem('correo',this.correo)
         }, 500);
       },

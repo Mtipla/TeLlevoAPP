@@ -9,9 +9,9 @@
 
 <ion-content>
   <div>
-    <ion-grid>
-      <ion-row *ngFor="let via of lista_viajes">
-        <ion-col *ngIf="via.capacidad_vehiculo>0">
+    <ion-grid *ngFor="let via of lista_viajes">
+      <ion-row *ngIf="via.capacidad_vehiculo>0">
+        <ion-col >
           <h3>{{ via.destino }} </h3>
         </ion-col>
         <ion-col size="auto">
