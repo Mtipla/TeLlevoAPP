@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>CRUD-api</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="recuperar()">Recuperar</ion-button>
+  <ion-grid *ngFor="let api of lista">
+    {{ api.nombre }}
+  </ion-grid>
+</ion-content>

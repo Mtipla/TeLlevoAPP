@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Historial Viajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-grid *ngFor="let via of lista_viajes">
+      <ion-row  *ngIf=" via.capacidad_vehiculo>0 ">
+        <ion-col>
+          <h3>{{ via.destino }} </h3>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button name="eliminar" (click)="presentAlert(via.id)" fill="clear" size="large"><ion-icon
+              name="trash-outline"></ion-icon></ion-button>
+          <ion-button (click)="modificar(via,true)" fill="clear" size="large"><ion-icon name="sync-outline">
+            </ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <!--Modificar-->
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modificar</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <h2>Modificar Viaje</h2>
+        <ion-input [(ngModel)]="m_viaje.partida" label="Partida" placeholder="Ingrese partida"></ion-input>
+        <ion-input [(ngModel)]="m_viaje.destino" label="Destino" placeholder="Ingrese destino"></ion-input>
+        <ion-input [(ngModel)]="m_viaje.capacidad_vehiculo" label="Capacidad" placeholder="Ingrese capacidad"></ion-input>
+        <ion-input [(ngModel)]="m_viaje.precio" label="Precio" placeholder="Ingrese precio"></ion-input>
+        <ion-input [(ngModel)]="m_viaje.lugar_encuentro" label="Encuentro" placeholder="Luger de encuentro"></ion-input>
+        <div style="text-align: center;" >
+          <ion-button (click)="actualiza()" expand="block" >Modificar</ion-button>
+          <ion-button (click)="cancelar(false)" expand="block" >Cancelar</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

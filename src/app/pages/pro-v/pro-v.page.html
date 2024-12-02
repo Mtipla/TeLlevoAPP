@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mapa</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar name="Destino" *ngIf="sw" placeholder="Destino" [(ngModel)]="mi_direccion"
+      show-clear-button="focus"></ion-searchbar>
+    <ion-item *ngIf="sw2">
+      <ion-select name="Partida" (ionChange)="direccionSeleccionada($event)" label="Partida" label-placement="floating">
+        <ion-select-option [value]="dire" *ngFor="let dire of arreglo_direcciones">{{ dire.place_name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row *ngIf="sw">
+        <ion-col><ion-button expand="full" size="small" (click)="buscarDireccion()">Buscar</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row *ngIf="sw2">
+        <ion-button  expand="full" size="small" routerLink="/pro-d">Iniciar viaje</ion-button>
+        <ion-button expand="full" size="small" (click)="mapa()">Borrar</ion-button>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id='mapa' style="width: 97%; height: 98%;  margin: 5px;"></div>
+</ion-content>

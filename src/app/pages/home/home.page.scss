@@ -1,0 +1,34 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+
+  height: 100%;
+}
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
+.rectangle {
+  width: 100%;
+  height: 100%
+}
+
+.custom-parent {
+  height: 35%;
+}
+
+.imgn{
+  height: 115px;
+  text-align: center;
+}
+
+.icono{
+  height: 172px;
+
+}

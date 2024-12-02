@@ -1,0 +1,52 @@
+<ion-menu menuId="first-menu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title> Conductor  </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list lines="full">
+      <ion-item>
+        <ion-button fill="clear" color="dark"> {{ correo }}</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button fill="clear" routerLink="/home-pasajero" color="dark">Modo de viaje</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="cerrar()" fill="clear" color="dark">Cerrar sesion</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button routerLink="/crud-api" fill="clear" color="dark">crud-api</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start" (click)="openFirstMenu()"> <ion-icon name="menu-outline" size="large"></ion-icon>
+      </ion-buttons>
+      <ion-title>Bienvenido Conductor </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="wrapper">
+      <ion-grid>
+        <ion-row>
+          <ion-col><img class="icono" src="../../../assets/img/icono_tellevo.png" alt="" srcset=""></ion-col> 
+        </ion-row>
+      </ion-grid>
+      <div class="ion-activatable ripple-parent custom-parent rectangle" routerLink="/pro-v">
+        <h3>Programar viaje</h3> <img class="imgn" src="../../../assets/img/auto_a-removebg-preview.png"
+          alt=""><ion-ripple-effect> </ion-ripple-effect>
+      </div>
+      <div class="ion-activatable ripple-parent custom-parent rectangle" routerLink="/v-viaje">
+        <h3>Ver viajes</h3> <img class="imgn" src="../../../assets/img/agenda_r.png" alt=""><ion-ripple-effect>
+        </ion-ripple-effect>
+      </div>
+    </div>
+  </ion-content>
+</div>
